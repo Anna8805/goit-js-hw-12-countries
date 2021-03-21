@@ -1,5 +1,5 @@
 import './css/styles.css';
-import APIfetchCountries from './js/fetchCountries';
+import apiFetchCountries from './js/fetchCountries';
 import getRefs from './js/get-refs';
 import oneCardCountryTemplate from './templates/templateOneCountry.hbs';
 import countryListTemplate from './templates/countriesTemplate.hbs';
@@ -13,7 +13,7 @@ const refs = getRefs();
 refs.fetchCountries.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch({ target: { value } }) {
-    APIfetchCountries(value)
+    apiFetchCountries(value)
         .then(data => {
             refs.cardContainer.innerHTML = '';
             if (data.length > 10) {
